@@ -31,6 +31,8 @@ target_link_libraries(
     ${PROJECT_NAME}
     PRIVATE coronan::lib
     PRIVATE Qt5::Charts
+    PRIVATE Qt5::Core
+    PRIVATE Qt5::Widgets
 )
 
 target_compile_options(
