@@ -64,7 +64,9 @@ if(CLANG_TIDY_EXE AND NOT CMAKE_COMPILER_IS_GNUCXX)
     )
 endif()
 
-set_target_properties(${PROJECT_NAME} PROPERTIES CXX_EXTENSIONS OFF)
+set_target_properties(${PROJECT_NAME} PROPERTIES 
+    CXX_STANDARD 17
+    CXX_EXTENSIONS OFF)
 
 add_test(NAME coronan_test COMMAND $<TARGET_FILE:coronan::UnitTest>)
 

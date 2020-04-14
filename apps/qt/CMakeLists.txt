@@ -87,6 +87,11 @@ target_compile_options(
                            $<$<BOOL:UNIX>:-fPIC;>
 )
 
+set_target_properties(${PROJECT_NAME} PROPERTIES
+    CXX_STANDARD 17
+    CXX_EXTENSIONS OFF
+)
+
 if(CLANG_TIDY_EXE AND NOT CMAKE_COMPILER_IS_GNUCXX)
     set_target_properties(
         ${PROJECT_NAME} PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_PROPERTIES}"
