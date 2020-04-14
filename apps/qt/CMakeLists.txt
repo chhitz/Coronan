@@ -30,7 +30,8 @@ find_package(Qt5Core CONFIG REQUIRED)
 target_link_libraries(
     ${PROJECT_NAME}
     PRIVATE coronan::lib
-    PRIVATE Qt5::Charts
+    PRIVATE qtcharts::qtcharts
+    PRIVATE Qt5::Core
 )
 
 target_compile_options(
