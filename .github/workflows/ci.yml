@@ -32,11 +32,11 @@ jobs:
       - uses: actions/checkout@v1
       - name: dependencies (Linux)
         if: runner.os == 'Linux'
-        run: sudo apt install ninja-build -y
+        run: sudo apt install ninja-build clang-tidy -y
 
       - name: dependecies (macos)
         if: runner.os == 'macOS'
-        run: brew install ninja
+        run: brew install ninja clang-tidy
 
       # - name: dependencies (windows)
       #   if: runner.os == 'Windows'
