@@ -9,7 +9,8 @@ namespace coronan {
 namespace api_parser {
 
 namespace {
-auto parse_today_data(auto const& json_dom_object)
+auto parse_today_data(const rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<char>,
+      rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator> > >& json_dom_object)
 {
   CountryObject::today_t today{};
   today.deaths = json_dom_object["deaths"].GetInt();
@@ -17,7 +18,8 @@ auto parse_today_data(auto const& json_dom_object)
   return today;
 }
 
-auto parse_lates_data(auto const& json_dom_object)
+auto parse_lates_data(const rapidjson::GenericObject<false, rapidjson::GenericValue<rapidjson::UTF8<char>,
+      rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator> > >& json_dom_object)
 {
   CountryObject::latest_t latest{};
   latest.deaths = json_dom_object["deaths"].GetInt();
@@ -46,7 +48,8 @@ auto parse_lates_data(auto const& json_dom_object)
   return latest;
 }
 
-auto parse_timeline(auto const& json_dom_array)
+auto parse_timeline(const rapidjson::GenericValue<rapidjson::UTF8<char>,
+      rapidjson::MemoryPoolAllocator<rapidjson::CrtAllocator> >::Array& json_dom_array)
 {
   std::vector<CountryObject::timeline_t> timeline;
   for (auto const& data_point : json_dom_array)

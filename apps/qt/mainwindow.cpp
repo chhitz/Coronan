@@ -27,7 +27,7 @@ template <class... Ts> struct overloaded : Ts...
 template <class... Ts>
 overloaded(Ts...)->overloaded<Ts...>; // not needed as of C++20
 
-void update_country_overview_table(auto* table, auto const& country_data)
+void update_country_overview_table(QTableWidget * table, const coronan::CountryObject& country_data)
 {
   auto const label_col_index = 0;
   auto const value_col_index = 1;
