@@ -13,25 +13,24 @@ set(CMAKE_AUTORCC ON)
 
 add_executable(
     ${PROJECT_NAME}
-    ${CMAKE_CURRENT_LIST_DIR}/main.cpp ${CMAKE_CURRENT_LIST_DIR}/mainwindow.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/main.cpp 
+    ${CMAKE_CURRENT_LIST_DIR}/mainwindow.cpp
     ${CMAKE_CURRENT_LIST_DIR}/mainwindow.h
     ${CMAKE_CURRENT_LIST_DIR}/mainwindow.ui
 )
 
 add_executable(coronan::App ALIAS ${PROJECT_NAME})
 
-find_package(
-    Qt5 HINTS /home/komax/Qt/5.14.2/gcc_64
-    COMPONENTS Charts
-    REQUIRED
-)
+find_package(Qt5Charts REQUIRED)
 find_package(Qt5Core CONFIG REQUIRED)
+find_package(Qt5Widgets CONFIG REQUIRED)
 
 target_link_libraries(
     ${PROJECT_NAME}
     PRIVATE coronan::lib
-    PRIVATE qtcharts::qtcharts
+    PRIVATE Qt5Charts::Qt5Charts
     PRIVATE Qt5::Core
+    PRIVATE Qt5::Widgets
 )
 
 target_compile_options(

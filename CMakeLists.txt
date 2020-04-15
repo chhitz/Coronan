@@ -20,6 +20,10 @@ conan_cmake_run(REQUIRES doctest/2.3.7
                          poco/1.10.1
                          rapidjson/1.1.0
                          lyra/1.3.0
+                         openssl/1.0.2t  # resolve conflict between poco and qt
+                         qt/5.12.7@bincrafters/stable
+                         Qt5Charts/5.12.7
+                OPTIONS *:shared=True
                 NO_LOAD 1 
                 BUILD missing
                 GENERATORS cmake_find_package cmake_paths)
