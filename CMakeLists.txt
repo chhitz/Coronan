@@ -17,19 +17,6 @@ endif()
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 include(clang)
 
-include(conan)
-
-conan_cmake_run(REQUIRES doctest/2.3.7
-                         poco/1.10.1
-                         rapidjson/1.1.0
-                         lyra/1.3.0
-                OPTIONS *:shared=True poco:enable_mongodb=False poco:enable_data=False poco:enable_data_sqlite=False poco:enable_xml=False poco:enable_json=False poco:enable_jwt=False poco:enable_zip=False poco:enable_redis=False
-                NO_LOAD 1 
-                BUILD missing
-                GENERATORS cmake_find_package cmake_paths)
-
-include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
-
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 
     set_property(GLOBAL PROPERTY USE_FOLDERS ON)

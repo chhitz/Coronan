@@ -13,10 +13,12 @@ It reads the current data of Corona (Covid-19) cases for Switzerland from the _T
 
 ## Development
 
-To build the project you need python and [conan](https://conan.io/):
-```bash
-#> pip install conan
-```
+To build the project you need the following dependencies:
+* doctest >= 2.3.7
+* poco >= 1.10.1
+* rapidjson >= 1.1.0
+* lyra >=1.3.0
+
 Further a recent version of [CMake](https://cmake.org/) (> 3.10), a modern C++ compiler (C++17) and [Qt](https://www.qt.io/) with [QtCharts](https://doc.qt.io/qt-5/qtcharts-index.html) must be installed.
 
 ### How to build
