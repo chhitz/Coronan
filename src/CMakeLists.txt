@@ -86,8 +86,10 @@ target_compile_options(
                            $<$<BOOL:UNIX>:-fPIC;>
 )
 
+if(CODE_COVERAGE AND CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
 # Include code-coverage settings:
-target_link_libraries(${PROJECT_NAME} PUBLIC code_coverage::config)
+    target_link_libraries(${PROJECT_NAME} PUBLIC code_coverage::config)
+endif()
 
 if(CLANG_TIDY_EXE AND NOT CMAKE_COMPILER_IS_GNUCXX)
     set_target_properties(
